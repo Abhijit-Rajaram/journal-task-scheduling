@@ -1,0 +1,48 @@
+services:
+
+  fastapi:
+    build: .
+    container_name: fastapi_app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+      - db
+    env_file:
+      - .env
+
+  celery:
+    build: .
+    container_name: celery_worker
+    command: celery -A main.celery_worker.celery_app worker --loglevel=info
+    depends_on:
+      - redis
+      - db
+    env_file:
+      - .env
+
+  celery-beat:
+    build: .
+    container_name: celery_beat
+    command: celery -A main.celery_worker.celery_app beat --loglevel=info
+    depends_on:
+      - redis
+      - db
+    env_file:
+      - .env
+
+  redis:
+    container_name: redis
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"

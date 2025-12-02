@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg-info/
+*.egg
+dist/
+build/
+*.log
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# Pytest
+.cache/
+.pytest_cache/
+
+# MySQL / Postgres / SQLite local DB files
+*.db
+*.sqlite3
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Environment files
+.env
+.env.*
+
+# Docker
+*.dockerignore
+docker-compose.override.yml
+docker-compose.override.*.yml
+docker-compose.override.*.yaml
+docker-compose.override.yml
+Dockerfile.*
+
+# Celery Beat schedule & logs
+celerybeat-schedule
+celerybeat.pid
+*.log
+
+# Logs
+logs/
+*.log
+
+# Misc
+*.bak
+*.swp
+*.tmp
+.DS_Store
+
+# Ignore uploaded files (if any)
+uploads/
