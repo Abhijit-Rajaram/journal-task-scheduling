@@ -1,7 +1,7 @@
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib
-from config import settings
+from main.config import settings
 
 def send_email(subject, html_body, to_email):
     msg = MIMEMultipart("alternative")

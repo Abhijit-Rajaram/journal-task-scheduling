@@ -1,9 +1,9 @@
 from celery import Celery
 from celery.schedules import crontab
-from config import settings
+from main.config import settings
 import asyncio
-from database import SessionLocal
-from email_utils import send_email
+from main.database import SessionLocal
+from main.email_utils import send_email
 from datetime import date
 
 celery_app = Celery(
